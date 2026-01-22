@@ -1,7 +1,7 @@
 # recon-hunter/
-├── README.md
-├── requirements.txt
-├── reconhunter.py        # Main CLI entry point
+├── README.md /
+├── requirements.txt /
+├── reconhunter.py        # Main CLI entry point /
 ├── modules/
 │   ├── crawler.py        # Domain & subdomain crawler
 │   ├── secret_scanner.py # JS/.env secret extraction
