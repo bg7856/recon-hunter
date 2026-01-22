@@ -1,4 +1,10 @@
-```text
+
+---
+
+## 📦 requirements.txt
+
+```
+text
 requests
 beautifulsoup4
 shodan
