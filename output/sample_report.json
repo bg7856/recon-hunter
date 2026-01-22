@@ -1,0 +1,7 @@
+{
+  "target": "example.com",
+  "subdomains": ["api.example.com", "dev.example.com", "test.example.com"],
+  "secrets": [],
+  "shodan": [],
+  "crtsh": []
+}
