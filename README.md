@@ -1,11 +1,14 @@
-# recon-hunter/
-├── README.md /
-├── requirements.txt /
-├── reconhunter.py        # Main CLI entry point /
-├── modules/
-│   ├── crawler.py        # Domain & subdomain crawler
-│   ├── secret_scanner.py # JS/.env secret extraction
-│   ├── shodan_api.py     # Shodan integration
-│   └── crtsh_api.py      # crt.sh integration
-├── output/
-│   └── sample_report.json
+# Recon Hunter
+
+Automated Recon & Secret Hunter tool for bug bounty and pentesting.
+
+## Features
+- Crawl domains and subdomains
+- Extract secrets from JS files and exposed configs
+- Flag API keys, tokens, and credentials with severity scoring
+- Integrate with Shodan and crt.sh APIs
+- Output actionable findings in JSON
+
+## Usage
+```bash
+python reconhunter.py target.com
