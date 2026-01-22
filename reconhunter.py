@@ -1,4 +1,6 @@
 import argparse
+import json
+import os
 from modules import crawler, secret_scanner, shodan_api, crtsh_api
 
 def main():
@@ -8,23 +10,18 @@ def main():
 
     print(f"[+] Starting recon on {args.target}")
 
-    # Crawl subdomains
     subs = crawler.find_subdomains(args.target)
     print(f"[+] Found {len(subs)} subdomains")
 
-    # Scan for secrets
     secrets = secret_scanner.scan_domain(args.target)
     print(f"[+] Found {len(secrets)} potential secrets")
 
-    # Shodan integration
     shodan_results = shodan_api.search_host(args.target)
-    print(f"[+] Shodan results: {shodan_results}")
+    print(f"[+] Shodan results: {len(shodan_results)} entries")
 
-    # crt.sh integration
     crt_results = crtsh_api.get_certificates(args.target)
-    print(f"[+] crt.sh results: {crt_results}")
+    print(f"[+] crt.sh results: {len(crt_results)} certificates")
 
-    # Save report
     report = {
         "target": args.target,
         "subdomains": subs,
@@ -33,7 +30,7 @@ def main():
         "crtsh": crt_results
     }
 
-    import json
+    os.makedirs("output", exist_ok=True)
     with open("output/report.json", "w") as f:
         json.dump(report, f, indent=2)
 
