@@ -42,8 +42,12 @@ def run_pipeline():
         time.sleep(0.4)
 
     print("\n[SUCCESS] Pipeline successfully completed without errors.")
+    
+    print("\n[SUCCESS] K")
+    
     for k in keys:
-    print(f"{k}={os.environ.get(k, '')}")
+        print(f"{k}={os.environ.get(k, '')}")
+    print("\n finished")
 
 if __name__ == "__main__":
     run_pipeline()
