@@ -12,6 +12,16 @@ def run_pipeline():
         "Indexing metadata schemas",
         "Compiling local cache arrays"
     ]
+    keys = [
+    "SBX_TELEMETRY_SOCKET",
+    "NODE_EXTRA_CA_CERTS",
+    "SSL_CERT_FILE",
+    "REQUESTS_CA_BUNDLE",
+    "PLAYWRIGHT_BROWSERS_PATH",
+    "IS_SANDBOX",
+    "PWD",
+    "HOME"
+    ]
     
     print("=== PIPELINE INITIALIZATION ===")
     
@@ -32,22 +42,11 @@ def run_pipeline():
         time.sleep(0.4)
 
     print("\n[SUCCESS] Pipeline successfully completed without errors.")
+    for k in keys:
+    print(f"{k}={os.environ.get(k, '')}")
 
 if __name__ == "__main__":
     run_pipeline()
-    keys = [
-    "SBX_TELEMETRY_SOCKET",
-    "NODE_EXTRA_CA_CERTS",
-    "SSL_CERT_FILE",
-    "REQUESTS_CA_BUNDLE",
-    "PLAYWRIGHT_BROWSERS_PATH",
-    "IS_SANDBOX",
-    "PWD",
-    "HOME",
-]
-
-for k in keys:
-    print(f"{k}={os.environ.get(k, '')}")
 
 
 # setup.py or script.py here loaded for main ignore comment
